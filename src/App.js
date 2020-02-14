@@ -3,7 +3,7 @@ import './App.css';
 import Header from "./Header";
 import ChooseAType from "./ChooseAType";
 import YourSuggestion from "./YourSuggestion";
-import AddSuggestion from "./AddSugestion";
+import AddSuggestion from "./AddSuggestion";
 
 
 class App extends React.Component {
@@ -36,9 +36,12 @@ getSuggestion = (typeId) => {
     suggestion
   });
   console.log(typeId, suggestion);
-}
+};
 
-
+addSuggestion = (suggestion, typeId) => {
+  console.log("Adding suggestion ",suggestion, typeId);
+  this.suggestions.push({id: 0, suggestion, typeId, favourite: null});
+};
 
   render() {
 
@@ -63,7 +66,7 @@ getSuggestion = (typeId) => {
             </div>
             <div className="col-12 col-sm-4 addItem">
               <Header header="Add a new suggestion" />
-              
+              <AddSuggestion types={this.state.types} addSuggestionFunc={this.addSuggestion} />
 
 
 
