@@ -50,21 +50,26 @@ addSuggestion = (suggestion, typeId) => {
       <div className="App">
         <div className="container">
           <div className="row">
-            <div className="col-12 col-sm-4 chooseType">
-              <Header header="What's My App?" />
+            <div className="col-12 col-sm-4">
+              <div className="Logo">
+              <h1>What's My App?</h1>
+              <div className="double-bottom-space">
+              <h6>Innovative Improvisation</h6>
+              </div>
+              </div>
               <Header header="Choose your suggestion type" />
               <ChooseAType types={this.state.types} getSuggestion={this.getSuggestion} />
 
 
             </div>
-            <div className="col-12 col-sm-4 returnItem">
+            <div className="col-12 col-sm-4">
               <Header header="Your suggestion!" />
               <YourSuggestion suggestion={this.state.suggestion} />
 
 
 
             </div>
-            <div className="col-12 col-sm-4 addItem">
+            <div className="col-12 col-sm-4">
               <Header header="Add a new suggestion" />
               <AddSuggestion types={this.state.types} addSuggestionFunc={this.addSuggestion} />
 
