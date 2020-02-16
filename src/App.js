@@ -26,7 +26,7 @@ suggestions = [
 ]
 
 getSuggestion = (typeId) => {
-  //axios.get TODO
+  //axios.get(``) TODO
   console.log(typeId);
   const typeSuggestions = this.suggestions.filter(suggestion => suggestion.typeId === typeId);
   console.log(typeSuggestions);
@@ -38,9 +38,43 @@ getSuggestion = (typeId) => {
   console.log(typeId, suggestion);
 };
 
+/*axios.post("", newSuggestion)
+      .then((response) => {
+        const newSuggestion = response.data;
+        const copy = this.state.suggestions.slice();
+        copy.push(newSuggestion);
+        console.log(copy);
+        this.setState({
+          suggestions: copy
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }; */
+
+
 addSuggestion = (suggestion, typeId) => {
   console.log("Adding suggestion ",suggestion, typeId);
   this.suggestions.push({id: 0, suggestion, typeId, favourite: null});
+};
+
+deleteSuggestion = id => {
+  //axios.delete(``) TODO
+  //  .then(() => {
+      const filteredSuggestion = this.suggestions.filter(keepSuggestion => {
+        if (keepSuggestion.id !== id) return true;
+        else return false;
+      });
+
+      this.suggestions = filteredSuggestion
+      this.setState({
+        suggestion: {}
+      });
+   // })
+   // .catch((err) => {
+   //   console.log(err);
+  // });
 };
 
   render() {
@@ -64,7 +98,10 @@ addSuggestion = (suggestion, typeId) => {
             </div>
             <div className="col-12 col-sm-4">
               <Header header="Your suggestion!" />
-              <YourSuggestion suggestion={this.state.suggestion} />
+              <YourSuggestion 
+              suggestion={this.state.suggestion}
+              deleteSuggestionFunc={this.deleteSuggestion}
+              />
 
 
 
