@@ -77,6 +77,31 @@ deleteSuggestion = id => {
   // });
 };
 
+addFavourite = (id, favourite) => {
+ // axios.put(`/${id}`, {
+ //   favourite
+ // })
+ //   .then(() => {
+      const filteredSuggestion = this.suggestions.map(favouriteSuggestion => {
+        if (favouriteSuggestion.id === id) {
+          favouriteSuggestion.favourite++;
+         console.log(favouriteSuggestion.favourite);
+        }
+        return favouriteSuggestion;
+      });
+
+      this.setState({
+        tasks: filteredSuggestion
+      });
+   // })
+ //   .catch(err => {
+ //     console.log(err);
+  //  });
+};
+
+
+
+
   render() {
 
 
@@ -101,6 +126,7 @@ deleteSuggestion = id => {
               <YourSuggestion 
               suggestion={this.state.suggestion}
               deleteSuggestionFunc={this.deleteSuggestion}
+              addFavouriteFunc={this.addFavourite}
               />
 
 
