@@ -43,6 +43,11 @@ h1 {
 h3 {
   margin-top: 10px;
   margin-bottom: 10px;
+} 
+
+h6 {
+  color: #2e4629;
+  font-weight: bold;
 }
 
 .bottom-space {
