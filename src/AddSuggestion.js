@@ -17,16 +17,25 @@ class AddSuggestion extends React.Component {
         });
     }
 
+
+    updateFavourite = () => {
+        this.setState({
+            favourite: 1
+        });
+    };
+
     addSuggestion = () => {
 
         this.props.addSuggestionFunc(
             this.state.suggestion,
-            this.state.typeId
+            this.state.typeId,
+            this.state.favourite
         );
 
         this.setState({
             suggestion: "",
             typeId: 0,
+            favourite: null,
         })
     };
 
@@ -40,22 +49,24 @@ class AddSuggestion extends React.Component {
                             type="text"
                             className="bottom-space"
                             onChange={this.updateSuggestion}
-                            
+
                             placeholder="Enter your suggestion"
                         />
-                        <select onChange={this.updateTypeId} defaultValue="" id="type" name="type">
+                        <select
+                            className="left-space"
+                            onChange={this.updateTypeId} defaultValue="" id="type" name="type">
                             <option value="" disabled>Choose your type</option>
                             {this.props.types.map(type =>
                                 <option key={type.typeId} value={type.typeId}>{type.type}</option>)}
 
                         </select>
-                        <button
-                            type="button"
-                            className="btn btn-outline-success btn-sm left-space"
-                            onClick={this.addSuggestion}
-                        >
-                            Add
-                        </button>
+
+
+                        <div className="btn-group left-space" role="group" aria-label="Add Suggestion Buttons">
+                            <button onClick={this.updateFavourite} type="button" className="btn btn-outline-success btn-sm"><i className="fa fa-heart" aria-hidden="true"></i></button>
+                            <button onClick={this.addSuggestion} type="button" className="btn btn-outline-success btn-sm"><i className="fa fa-check" aria-hidden="true"></i></button>
+                        </div>
+
                     </div>
                 </fieldset>
             </form>

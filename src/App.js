@@ -54,9 +54,9 @@ getSuggestion = (typeId) => {
   }; */
 
 
-addSuggestion = (suggestion, typeId) => {
-  console.log("Adding suggestion ",suggestion, typeId);
-  this.suggestions.push({id: 0, suggestion, typeId, favourite: null});
+addSuggestion = (suggestion, typeId, favourite) => {
+  console.log("Adding suggestion ",suggestion, typeId, favourite);
+  this.suggestions.push({id: 0, suggestion, typeId, favourite});
 };
 
 deleteSuggestion = id => {
