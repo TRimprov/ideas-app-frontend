@@ -50,6 +50,10 @@ h6 {
   font-weight: bold;
 }
 
+.green-text {
+  color: #67b857;
+}
+
 .bottom-space {
   margin-bottom: 10px;
 }
@@ -60,5 +64,38 @@ h6 {
 
 .left-space {
   margin-left: 10px;
+}
+
+
+/* Hide the default checkbox */
+.custom-sq input[type=checkbox] {
+  display: none;
+}
+
+/* Draw our custom check box */
+.custom-sq {
+  font-size: 16px;
+  line-height: 20px;
+}
+.custom-sq label {
+  cursor: pointer;
+}
+.custom-sq label:before {
+  display: inline-block;
+  width: 20px;
+  margin-right: 5px;
+  content: "\00a0";
+  text-align: center;
+  background: #eee;
+}
+.custom-sq label:hover::before{
+  background: #aaa;
+}
+
+/* On check */
+.custom-sq input:checked ~ label:before {
+  content: "\2713";
+  background: #67b857;
+  color: #fff;
 }
 
