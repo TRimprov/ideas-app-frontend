@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from "axios";
 import './App.css';
 import Header from "./Header";
 import ChooseAType from "./ChooseAType";
@@ -8,24 +9,29 @@ import AddSuggestion from "./AddSuggestion";
 
 class App extends React.Component {
   state = {
-    typeId: undefined,
-    suggestion: {},
-    types: [
-      {typeId: 1, type: "Relationship"},
-      {typeId: 2, type: "Location"},
-      {typeId: 3, type: "Object"},
-    ]
+    suggestion: [],
+    types: []
   };
 
-suggestions = [
-  {id:1, suggestion:"Husband and Wife", typeId: 1, favourite: null},
-  {id:2, suggestion:"Employee and Employer", typeId: 1, favourite: null},
-  {id:3, suggestion:"The Moon", typeId: 2, favourite: null},
-  {id:4, suggestion:"A Hospital", typeId: 2, favourite: null},
-  {id:5, suggestion:"Banana", typeId: 3, favourite: null},
-]
+ componentDidMount() {
+    axios.get("https://7i6d99wf8b.execute-api.eu-west-1.amazonaws.com/dev/types")
+      .then((response) => {
+        const types = response.data.types;
+          
 
-getSuggestion = (typeId) => {
+       console.log(types)
+
+        this.setState({
+          types: types
+        })
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+
+/*getSuggestion = (typeId) => {
   //axios.get(``) TODO
   console.log(typeId);
   const typeSuggestions = this.suggestions.filter(suggestion => suggestion.typeId === typeId);
@@ -36,9 +42,17 @@ getSuggestion = (typeId) => {
     suggestion
   });
   console.log(typeId, suggestion);
+}; */
+
+addSuggestion = (suggestion, typeId, favourite) => {
+  console.log("Adding suggestion ",suggestion, typeId, favourite);
+  const newSuggestion = {
+    suggestion: suggestion,
+    typeId: typeId,
+    favourite: null
 };
 
-/*axios.post("", newSuggestion)
+axios.post("https://7i6d99wf8b.execute-api.eu-west-1.amazonaws.com/dev/suggestion", newSuggestion)
       .then((response) => {
         const newSuggestion = response.data;
         const copy = this.state.suggestions.slice();
@@ -51,14 +65,11 @@ getSuggestion = (typeId) => {
       .catch((err) => {
         console.log(err);
       });
-  }; */
+  };
 
 
-addSuggestion = (suggestion, typeId, favourite) => {
-  console.log("Adding suggestion ",suggestion, typeId, favourite);
-  this.suggestions.push({id: 0, suggestion, typeId, favourite});
-};
 
+/*
 deleteSuggestion = id => {
   //axios.delete(``) TODO
   //  .then(() => {
@@ -97,7 +108,7 @@ addFavourite = (id, favourite) => {
  //   .catch(err => {
  //     console.log(err);
   //  });
-};
+}; */
 
 
 
