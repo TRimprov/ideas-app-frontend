@@ -10,7 +10,8 @@ import AddSuggestion from "./AddSuggestion";
 class App extends React.Component {
   state = {
     suggestion: [],
-    types: []
+    types: [],
+    associations: []
   };
 
   componentDidMount() {
@@ -67,6 +68,22 @@ class App extends React.Component {
         this.setState({
           suggestion: suggestion
         });
+      });
+  };
+
+  getAssociation = () => {
+    const suggestion = this.state.suggestion.suggestion;
+
+    axios.get(`https://api.wordassociations.net/associations/v1.0/json/search?apikey=940e7dd9-d827-4d1d-9e71-703130c3357d&text=${suggestion}&lang=en&limit=6`)
+      .then((response) => {
+        console.log("this is the response", response);
+        const associations = response.data.response[0].items.map(item => {
+          return item.item;
+        });
+        this.setState({
+          associations
+        });
+        console.log(associations);
       });
   };
 
@@ -164,8 +181,10 @@ class App extends React.Component {
               <Header header="Your suggestion!" />
               <YourSuggestion
                 suggestion={this.state.suggestion}
+                associations={this.state.associations}
                 deleteSuggestionFunc={this.deleteSuggestion}
                 addFavouriteFunc={this.addFavourite}
+                getAssociationFunc={this.getAssociation}
               />
 
 
