@@ -44,7 +44,20 @@ class App extends React.Component {
     console.log(typeId, suggestion);
   }; */
 
-  getSuggestion = () => {
+  getSuggestion = (typeId) => {
+
+    axios.get("https://7i6d99wf8b.execute-api.eu-west-1.amazonaws.com/dev/suggestion/"+typeId)
+      .then((response) => {
+        console.log("this is the response", response);
+        const suggestion = response.data.suggestion;
+        console.log("this is the suggestion", suggestion)
+        this.setState({
+          suggestion: suggestion
+        });
+      });
+  };
+
+  luckySuggestion = () => {
 
     axios.get("https://7i6d99wf8b.execute-api.eu-west-1.amazonaws.com/dev/suggestion")
       .then((response) => {
@@ -56,6 +69,7 @@ class App extends React.Component {
         });
       });
   };
+
 
   addSuggestion = (suggestion, typeId, favourite) => {
     console.log("Adding suggestion ", suggestion, typeId, favourite);
@@ -142,7 +156,7 @@ class App extends React.Component {
                 </div>
               </div>
               <Header header="Choose your suggestion type" />
-              <ChooseAType types={this.state.types} getSuggestion={this.getSuggestion} />
+              <ChooseAType types={this.state.types} getSuggestion={this.getSuggestion} luckySuggestion={this.luckySuggestion} />
 
 
             </div>

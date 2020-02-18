@@ -11,6 +11,9 @@ class ChooseAType extends React.Component {
         this.props.getSuggestion(parseInt(event.target.type.value));
     };
 
+    luckySuggestion = () => {
+        this.props.luckySuggestion();
+    };
 
     render() {
         return (
@@ -33,8 +36,7 @@ class ChooseAType extends React.Component {
 
                             <div className="btn-group left-space" role="group" aria-label="Choose Suggestion Buttons">
                             <button type="submit" className="btn btn-outline-success btn-sm left-space">Choose</button>
-                            <button type="submit" className="btn btn-outline-success btn-sm left-space">I'm feeling lucky!</button>
-
+                            <button onClick={this.luckySuggestion} type="button" className="btn btn-outline-success btn-sm left-space">I'm feeling lucky</button>
                             </div>  
                        
                         </div>
