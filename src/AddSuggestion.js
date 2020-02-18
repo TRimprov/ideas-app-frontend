@@ -53,7 +53,7 @@ class AddSuggestion extends React.Component {
                             placeholder="Enter your suggestion"
                         />
                         <select
-                            className="left-space"
+                            className="left-space bottom-space"
                             onChange={this.updateTypeId} defaultValue="" id="type" name="type">
                             <option value="" disabled>Choose your type</option>
                             {this.props.types.map(type =>

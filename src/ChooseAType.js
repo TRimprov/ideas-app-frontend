@@ -31,12 +31,12 @@ class ChooseAType extends React.Component {
                                 <label for="box3"><i className="fa fa-heart green-text" aria-hidden="true"></i></label>
                             </div>
 
+                            <div className="btn-group left-space" role="group" aria-label="Choose Suggestion Buttons">
+                            <button type="submit" className="btn btn-outline-success btn-sm left-space">Choose</button>
+                            <button type="submit" className="btn btn-outline-success btn-sm left-space">I'm feeling lucky!</button>
 
-                            <button
-                                type="submit"
-                                className="btn btn-outline-success btn-sm left-space"
-                            >Choose
-                        </button>
+                            </div>  
+                       
                         </div>
                     </div>
                 </fieldset>
