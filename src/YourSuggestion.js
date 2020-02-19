@@ -26,7 +26,7 @@ class YourSuggestion extends React.Component {
                             <div className="btn-group left-space bottom-space" role="group" aria-label="Suggestion Buttons">
                                 <button onClick={this.addFavourite} type="button" className="btn btn-outline-success btn-sm"><i className="fa fa-heart" aria-hidden="true"></i></button>
                                 <button onClick={this.handleDelete} type="button" className="btn btn-outline-success btn-sm"><i className="fa fa-times" aria-hidden="true"></i></button>
-                                <button onClick={this.getAssociation} type="button" className="btn btn-outline-success btn-sm">Associations</button>
+                                <button onClick={this.getAssociation} type="button" className="btn btn-outline-success btn-sm">Associate</button>
                             </div>
                             <ul className="associations-list">{this.props.associations.map((association,i) => <li key={i}> {association}</li>)}</ul>
                         </div>)
