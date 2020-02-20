@@ -22,7 +22,7 @@ class YourSuggestion extends React.Component {
                 {
                     this.props.suggestion && this.props.suggestion.suggestion && (
                         <div >
-                            <span className="bottom-space">{this.props.suggestion.suggestion}</span>
+                            <div className="bottom-space">{this.props.suggestion.suggestion}</div>
                             <div className="btn-group left-space bottom-space" role="group" aria-label="Suggestion Buttons">
                                 <button onClick={this.addFavourite} type="button" className="btn btn-outline-success btn-sm"><i className="fa fa-heart" aria-hidden="true"></i></button>
                                 <button onClick={this.handleDelete} type="button" className="btn btn-outline-success btn-sm"><i className="fa fa-times" aria-hidden="true"></i></button>
