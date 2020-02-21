@@ -11,7 +11,8 @@ class App extends React.Component {
   state = {
     suggestion: [],
     types: [],
-    associations: []
+    associations: [],
+    favourite: []
   };
 
   componentDidMount() {
@@ -137,8 +138,8 @@ class App extends React.Component {
     axios.put(`https://7i6d99wf8b.execute-api.eu-west-1.amazonaws.com/dev/suggestion/${id}`, {
       favourite
     })
-      .then(() => {
-        const filteredSuggestion = this.suggestion.map(favouriteSuggestion => {
+      .then((response) => {
+       /* const filteredSuggestion = this.suggestion.map(favouriteSuggestion => {
           if (favouriteSuggestion.id === id) {
             favouriteSuggestion.favourite++;
             console.log(favouriteSuggestion.favourite);
@@ -148,7 +149,8 @@ class App extends React.Component {
 
         this.setState({
           tasks: filteredSuggestion
-        });
+        }); */
+        console.log(response);
       })
       .catch(err => {
         console.log(err);
