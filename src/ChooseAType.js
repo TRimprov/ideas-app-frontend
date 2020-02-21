@@ -31,7 +31,7 @@ class ChooseAType extends React.Component {
 
                             <div className="custom-sq">
                                 <input type="checkbox" disabled="disabled" id="box3" />
-                                <label for="box3"><i className="fa fa-heart green-text" aria-hidden="true"></i></label>
+                                <label htmlFor="box3"><i className="fa fa-heart green-text" aria-hidden="true"></i></label>
                             </div>
 
                             <div className="btn-group left-space bottom-space" role="group" aria-label="Choose Suggestion Buttons">
