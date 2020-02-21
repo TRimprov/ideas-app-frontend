@@ -48,7 +48,7 @@ class App extends React.Component {
 
   getSuggestion = (typeId) => {
 
-    axios.get("https://7i6d99wf8b.execute-api.eu-west-1.amazonaws.com/dev/suggestion/"+typeId)
+    axios.get("https://7i6d99wf8b.execute-api.eu-west-1.amazonaws.com/dev/suggestion/" + typeId)
       .then((response) => {
         console.log("this is the response", response);
         const suggestion = response.data.suggestion;
@@ -139,7 +139,7 @@ class App extends React.Component {
       favourite
     })
       .then((response) => {
-       /* const filteredSuggestion = this.suggestion.map(favouriteSuggestion => {
+        const filteredSuggestion = this.suggestion.map(favouriteSuggestion => {
           if (favouriteSuggestion.id === id) {
             favouriteSuggestion.favourite++;
             console.log(favouriteSuggestion.favourite);
@@ -149,7 +149,7 @@ class App extends React.Component {
 
         this.setState({
           tasks: filteredSuggestion
-        }); */
+        });
         console.log(response);
       })
       .catch(err => {
@@ -175,11 +175,11 @@ class App extends React.Component {
                 </div>
               </div>
               <Header header="Choose your suggestion type" />
-              <ChooseAType 
-                types={this.state.types} 
-                getSuggestion={this.getSuggestion} 
-                luckySuggestion={this.luckySuggestion}  
-                />
+              <ChooseAType
+                types={this.state.types}
+                getSuggestion={this.getSuggestion}
+                luckySuggestion={this.luckySuggestion}
+              />
 
 
             </div>
