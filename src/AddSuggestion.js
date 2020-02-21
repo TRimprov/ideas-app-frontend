@@ -24,7 +24,8 @@ class AddSuggestion extends React.Component {
         });
     };
 
-    addSuggestion = () => {
+    addSuggestion = (event) => {
+        event.preventDefault();
 
         this.props.addSuggestionFunc(
             this.state.suggestion,
@@ -41,13 +42,13 @@ class AddSuggestion extends React.Component {
 
     render() {
         return (
-            <form>
+            <form onSubmit={this.addSuggestion}>
                 <fieldset>
                     <div>
                         <input
                             type="text"
                             className="bottom-space"
-                            onChange={this.updateSuggestion}
+                            onChange={this.updateSuggestion} required
 
                             placeholder="Enter your suggestion"
                         />
@@ -63,7 +64,7 @@ class AddSuggestion extends React.Component {
 
                         <div className="btn-group left-space" role="group" aria-label="Add Suggestion Buttons">
                             <button onClick={this.updateFavourite} type="button" className="btn btn-outline-success btn-sm"><i className="fa fa-heart" aria-hidden="true"></i></button>
-                            <button onClick={this.addSuggestion} type="button" className="btn btn-outline-success btn-sm"><i className="fa fa-check" aria-hidden="true"></i></button>
+                            <button type="submit" className="btn btn-outline-success btn-sm"><i className="fa fa-check" aria-hidden="true"></i></button>
                         </div>
 
                     </div>
