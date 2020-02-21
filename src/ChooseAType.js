@@ -15,6 +15,10 @@ class ChooseAType extends React.Component {
         this.props.luckySuggestion();
     };
 
+    bookSuggestion = () => {
+        this.props.bookSuggestion();
+    };
+
     render() {
         return (
             <form onSubmit={this.submitForm}>
@@ -36,7 +40,8 @@ class ChooseAType extends React.Component {
 
                             <div className="btn-group left-space bottom-space" role="group" aria-label="Choose Suggestion Buttons">
                             <button type="submit" className="btn btn-outline-success btn-sm left-space">Choose</button>
-                            <button onClick={this.luckySuggestion} type="button" className="btn btn-outline-success btn-sm left-space">Feeling lucky</button>
+                            <button onClick={this.luckySuggestion} type="button" className="btn btn-outline-success btn-sm left-space">Random</button>
+                            <button onClick={this.bookSuggestion} type="button" className="btn btn-outline-success btn-sm left-space">A Book</button>
                             </div>  
                        
                         </div>

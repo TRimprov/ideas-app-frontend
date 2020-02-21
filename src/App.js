@@ -72,6 +72,22 @@ class App extends React.Component {
       });
   };
 
+  bookSuggestion = () => {
+
+    axios.get("https://7i6d99wf8b.execute-api.eu-west-1.amazonaws.com/dev/suggestion")
+      .then((response) => {
+        console.log("this is the response", response);
+        const suggestion = response.data.suggestion;
+        console.log("this is the suggestion", suggestion)
+        this.setState({
+          suggestion: suggestion
+        });
+      });
+  };
+
+
+
+
   getAssociation = () => {
     const suggestion = this.state.suggestion.suggestion;
 
@@ -175,7 +191,12 @@ class App extends React.Component {
                 </div>
               </div>
               <Header header="Choose your suggestion type" />
-              <ChooseAType types={this.state.types} getSuggestion={this.getSuggestion} luckySuggestion={this.luckySuggestion} />
+              <ChooseAType 
+                types={this.state.types} 
+                getSuggestion={this.getSuggestion} 
+                luckySuggestion={this.luckySuggestion} 
+                bookSuggestion={this.bookSuggestion} 
+                />
 
 
             </div>
