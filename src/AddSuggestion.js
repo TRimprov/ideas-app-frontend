@@ -7,7 +7,7 @@ class AddSuggestion extends React.Component {
 
     updateSuggestion = (event) => {
         this.setState({
-            suggestion: event.target.value
+            suggestion: event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1)
         });
     };
 
