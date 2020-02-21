@@ -46,9 +46,9 @@ class App extends React.Component {
     console.log(typeId, suggestion);
   }; */
 
-  getSuggestion = (typeId) => {
+  getSuggestion = (typeId, favourite) => {
 
-    axios.get("https://7i6d99wf8b.execute-api.eu-west-1.amazonaws.com/dev/suggestion/" + typeId)
+    axios.get("https://7i6d99wf8b.execute-api.eu-west-1.amazonaws.com/dev/suggestion/" + typeId + "?favourite=" + (favourite?1:0))
       .then((response) => {
         console.log("this is the response", response);
         const suggestion = response.data.suggestion;

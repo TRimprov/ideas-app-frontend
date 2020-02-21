@@ -8,7 +8,7 @@ class ChooseAType extends React.Component {
     submitForm = (event) => {
         event.preventDefault();
         console.log(event.target.type.value);
-        this.props.getSuggestion(parseInt(event.target.type.value));
+        this.props.getSuggestion(parseInt(event.target.type.value), event.target.favourite.checked);
     };
 
     luckySuggestion = () => {
@@ -30,7 +30,7 @@ class ChooseAType extends React.Component {
 
 
                             <div className="custom-sq">
-                                <input type="checkbox" id="box3" />
+                                <input type="checkbox" id="box3" name="favourite"/>
                                 <label htmlFor="box3"><i className="fa fa-heart green-text" aria-hidden="true"></i></label>
                             </div>
 

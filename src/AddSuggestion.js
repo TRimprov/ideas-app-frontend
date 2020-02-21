@@ -37,6 +37,8 @@ class AddSuggestion extends React.Component {
             suggestion: "",
             favourite: null,
         })
+
+        event.currentTarget.suggestionText.value="";
     };
 
 
@@ -48,6 +50,7 @@ class AddSuggestion extends React.Component {
                         <input
                             type="text"
                             className="bottom-space"
+                            name="suggestionText"
                             onChange={this.updateSuggestion} required
 
                             placeholder="Enter your suggestion"
