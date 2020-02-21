@@ -94,7 +94,7 @@ class App extends React.Component {
     const newSuggestion = {
       suggestion: suggestion,
       typeId: typeId,
-      favourite: null
+      favourite: favourite
     };
 
     axios.post("https://7i6d99wf8b.execute-api.eu-west-1.amazonaws.com/dev/suggestion", newSuggestion)

@@ -34,7 +34,6 @@ class AddSuggestion extends React.Component {
 
         this.setState({
             suggestion: "",
-            typeId: 0,
             favourite: null,
         })
     };
