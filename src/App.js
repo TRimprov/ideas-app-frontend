@@ -54,7 +54,8 @@ class App extends React.Component {
         const suggestion = response.data.suggestion;
         console.log("this is the suggestion", suggestion)
         this.setState({
-          suggestion: suggestion
+          suggestion: suggestion,
+          associations: []
         });
       });
   };
@@ -67,9 +68,10 @@ class App extends React.Component {
         const suggestion = response.data.suggestion;
         console.log("this is the suggestion", suggestion)
         this.setState({
-          suggestion: suggestion
+          suggestion: suggestion,
+          associations: []
         });
-      });
+      })
   };
 
   getAssociation = () => {
