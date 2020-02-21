@@ -34,9 +34,9 @@ class ChooseAType extends React.Component {
                                 <label for="box3"><i className="fa fa-heart green-text" aria-hidden="true"></i></label>
                             </div>
 
-                            <div className="btn-group left-space" role="group" aria-label="Choose Suggestion Buttons">
+                            <div className="btn-group left-space bottom-space" role="group" aria-label="Choose Suggestion Buttons">
                             <button type="submit" className="btn btn-outline-success btn-sm left-space">Choose</button>
-                            <button onClick={this.luckySuggestion} type="button" className="btn btn-outline-success btn-sm left-space">I'm feeling lucky</button>
+                            <button onClick={this.luckySuggestion} type="button" className="btn btn-outline-success btn-sm left-space">Feeling lucky</button>
                             </div>  
                        
                         </div>
