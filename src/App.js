@@ -101,13 +101,7 @@ class App extends React.Component {
 
     axios.post("https://7i6d99wf8b.execute-api.eu-west-1.amazonaws.com/dev/suggestion", newSuggestion)
       .then((response) => {
-        const newSuggestion = response.data;
-        const copy = this.state.suggestion.slice();
-        copy.push(newSuggestion);
-        console.log(copy);
-        this.setState({
-          suggestions: copy
-        });
+        console.log(response);
       })
       .catch((err) => {
         console.log(err);
